@@ -20,11 +20,11 @@ class VendorSweet(db.Model, SerializerMixin):
     @validates('price')
     def validate_price(self, key, price):
         if price is None:
-            raise ValueError("Invalid price")
+            raise ValueError("Price must have a value")
         if price >= 0:
             return price
         else:
-            raise ValueError("Invalid price")
+            raise ValueError("Price must be a positive integer")
 
     
     def __repr__(self):

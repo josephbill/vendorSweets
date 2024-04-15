@@ -65,6 +65,8 @@ def create_app():
     class VendorSweets(Resource):
         def post(self):
             data = request.get_json()
+            if data['price'] < 0:
+                return make_response(jsonify({"errors" : ["validation errors"]}), 400)
             vendor_sweet = VendorSweet(
                 price = data.get('price'),
                 vendor_id = data.get('vendor_id'),
@@ -74,9 +76,10 @@ def create_app():
                 db.session.add(vendor_sweet)
                 db.session.commit()
                 response = make_response(jsonify(vendor_sweet.to_dict()), 201)
-            except ValueError as e:
+            except IntegrityError as e:
                 db.session.rollback()
-                response = make_response(jsonify({"errors" : ["validation errors"]}), 400)
+                error_msg = str(e.orig)
+                response = make_response(jsonify({"errors" : error_msg}), 400)
             return response
 
     api.add_resource(VendorSweets, '/vendor_sweets')
