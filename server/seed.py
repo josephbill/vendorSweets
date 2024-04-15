@@ -1,7 +1,7 @@
 from random import choice as rc, randrange
 
 from app import app
-from models import db, Sweet, Vendor, VendorSweet
+from models.dbmodel import db, Sweet, Vendor, VendorSweet
 
 if __name__ == '__main__':
     with app.app_context():

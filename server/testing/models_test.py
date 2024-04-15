@@ -1,6 +1,6 @@
 import pytest
 from app import app
-from models import db, Sweet, Vendor, VendorSweet
+from models.dbmodel import db, Sweet, Vendor, VendorSweet
 from faker import Faker
 
 

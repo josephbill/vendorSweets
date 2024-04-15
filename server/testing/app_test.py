@@ -3,7 +3,7 @@ from os import environ
 from flask import request
 from faker import Faker
 from app import app
-from models import db, Sweet, Vendor, VendorSweet
+from models.dbmodel import db, Sweet, Vendor, VendorSweet
 from random import randint
 
 
