@@ -23,4 +23,6 @@ def create_app():
         
     api.add_resource(Home, '/')
 
+    
+
     return app
