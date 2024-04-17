@@ -20,7 +20,7 @@ def create_app():
     # Establish routes
     class Home(Resource):
         def get(self):
-            return '<h1>Code challenge</h1>'
+            return 'Code challenge'
         
     api.add_resource(Home, '/')
 
