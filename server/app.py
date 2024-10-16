@@ -6,7 +6,7 @@ from routes import create_app
 
 app = create_app()
 
-app.json.compact = False
+# app.json.compact = False
 
 migrate = Migrate(app, db)
 
