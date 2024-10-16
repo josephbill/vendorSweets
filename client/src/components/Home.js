@@ -5,7 +5,7 @@ function Home() {
   const [vendors, setVendors] = useState([]);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:5555/vendors")
+    fetch("/vendors")
       .then((r) => r.json())
       .then(setVendors);
   }, []);
@@ -16,7 +16,7 @@ function Home() {
       <ul>
         {vendors.map((vendor) => (
           <li key={vendor.id}>
-            <Link to={`http://127.0.0.1:5555/vendors/${vendor.id}`}>{vendor.name}</Link>
+            <Link to={`/vendors/${vendor.id}`}>{vendor.name}</Link>
           </li>
         ))}
       </ul>
